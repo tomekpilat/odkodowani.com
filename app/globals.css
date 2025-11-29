@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fafafa;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Subtle 0/1 background */
+.binary-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.binary-bg::before {
+  content: "01001001 01010100 00100000 01010100 01101111 01101011 00100000 01100001 01101110 01101001 01100101 00100000 01101001 01110011 01110100\n01001001 01001110 00100000 01100010 01101100 01101111 01100111 01101111 01110011 01110000 01101000 01100101 01110010 01110011 00100000";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 48px;
+  line-height: 1.6;
+  letter-spacing: 0.5em;
+  color: rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  white-space: pre-wrap;
+  text-align: center;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
+}
+
+html.dark .binary-bg::before {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.binary-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.episode-role {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
